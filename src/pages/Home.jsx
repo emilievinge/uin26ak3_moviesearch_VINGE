@@ -56,6 +56,7 @@ export default function Home(){
                     {focused ? <History history={history} setSearch={setSearch} /> : null}
                 <button onClick={getMovies}>Søk</button>
             </form>
+            <footer>Movie search 2026</footer>
         </main>
     )
 }
