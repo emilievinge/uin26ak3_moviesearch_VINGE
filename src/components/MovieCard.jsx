@@ -1,14 +1,15 @@
     
-export default function MovieCard() {
-    const [movie, setMovie] = useState()
+export default function MovieCard(movie, ) {
     
     return (
+        <>
         <h2>Foreslåtte filmer</h2>
-        {movie?.Search?.map((movie) => (
-            <article key={movie?.imdbID} >
-                <h3>{movie?.Title}</h3>
-                <img src={movie.Poster ? movie.Poster : "Bilde mangler"} alt="Filmplakat"/>
-                <p>Utgivelsesår: {movie?.Year}</p>
+        {movie?.Search?.map((mov) => (
+            <article key={mov?.imdbID} >
+                <h3>{mov?.Title}</h3>
+                <img src={mov.Poster ? mov.Poster : "Bilde mangler"} alt="Filmplakat"/>
+                <p>Utgivelsesår: {mov?.Year}</p>
             </article>))}
+        </>
     )
 }
