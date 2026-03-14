@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import MovieCard from "../components/MovieCard"
 
 export default function Home({movies, setMovies}){
-    // Hjelp til søk https://chatgpt.com/c/69b2c210-8840-8332-a01d-34b2566c7850
     const [search, setSearch] = useState("james bond 007")
     const [focused, setFocused] = useState(false)
     
@@ -17,8 +16,6 @@ export default function Home({movies, setMovies}){
             const response = await fetch(`${baseUrl}${apiKey}`)
             const data = await response.json()
             
-            // KI ba meg sette inn denne. https://chatgpt.com/c/69b2c210-8840-8332-a01d-34b2566c7850
-            //getMovie(data)
             setMovies(data)
             console.log(data)
         }
@@ -28,9 +25,13 @@ export default function Home({movies, setMovies}){
         }
     }
 
+    //useEffect som henter filmer etter brukeren har skrevet inn minst 3 bokstaver
+        //Kilde: Medstudent van Gemert, A. (2026).
     useEffect(() => {
-        getMovies()
-    }, [])
+        if (search.length >= 3) {
+            getMovies()
+        }
+    }, [search])
 
     const handleChange = (e)=>{
         setSearch(e.target.value)
@@ -48,10 +49,10 @@ export default function Home({movies, setMovies}){
             <form onSubmit={handleSubmit}>
                 <label>
                     Søk etter film
-                    <input  type="search" placeholder="Harry Potter" onChange={handleChange} onFocus={()=> setFocused(true)} /*onBlur={()=> setFocused(false)}*/></input>
+                    <input id="search-box" type="search" placeholder="Harry Potter" onChange={handleChange} onFocus={()=> setFocused(true)} ></input>
                 </label>
     
-                <button onClick={getMovies}>Søk</button>
+                <button id="search-btn" onClick={getMovies}>Søk</button>
             </form>
             <section>
                 <MovieCard movie={movies} />
