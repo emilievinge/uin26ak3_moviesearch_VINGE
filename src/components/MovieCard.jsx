@@ -2,7 +2,6 @@ import { Link } from "react-router-dom"
 
 export default function MovieCard({movie}) {
 
-
     return (
         <>
         <h2 id="suggested_movies">Foreslåtte filmer</h2>
@@ -12,7 +11,7 @@ export default function MovieCard({movie}) {
                     <h3>
                         {mov?.Title}
                     </h3>
-                    {/*Kilde til if-test hvis bilde mangler: https://chatgpt.com/c/69b55c19-459c-832f-ad77-8dada0897e00 
+                    {/*Kilde til if-test hvis bilde mangler: https://chatgpt.com/share/69d64662-8198-8397-a091-929251c1c878 
                     KI ga meg også en kode til hvis linken er der, men ikke fungerer/gir feilmelding, men da glitcher alt-teksten på siden.
                     Kilde til bilde fra Pixabay: https://pixabay.com/illustrations/cinema-strip-movie-video-64074/*/}
                     <img id="poster"
